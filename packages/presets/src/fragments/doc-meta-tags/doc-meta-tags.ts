@@ -491,7 +491,7 @@ export class DocMetaTags extends WithDisposable(LitElement) {
       <div class="doc-meta-container caret-ignore">
         <div class="meta-data-expanded caret-ignore">
           <div class="meta-data-expanded-title" @click="${this._toggle}">
-            <div>Doc info</div>
+            <div>文档信息</div>
             <div class="close">${ArrowDownSmallIcon}</div>
           </div>
           <div class="meta-data-expanded-content">

@@ -30,7 +30,7 @@
     "@blocksuite/store": "workspace:*"
   },
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./dist/index.js"
   },
   "publishConfig": {
     "access": "public",

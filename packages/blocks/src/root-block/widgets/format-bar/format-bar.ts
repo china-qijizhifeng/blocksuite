@@ -122,6 +122,58 @@ export class AffineFormatBarWidget extends WidgetElement {
     if (this.displayType === 'none' || this._dragging) {
       return false;
     }
+    
+    // 【v6.5】全局检查：如果选中了 aiPlaceholder 内容，不显示工具栏
+    try {
+      const selection = window.getSelection();
+      if (selection && selection.rangeCount > 0) {
+        const range = selection.getRangeAt(0);
+        let node: Node | null = range.commonAncestorContainer;
+        
+        // 遍历祖先元素检查
+        while (node) {
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            const element = node as Element;
+            const tagName = element.tagName?.toLowerCase();
+            // 检查是否是 affine-ai-placeholder 或其内部元素
+            if (tagName === 'affine-ai-placeholder') {
+              return false;
+            }
+            // 检查是否有 affine-ai-placeholder class
+            if (element.classList?.contains('affine-ai-placeholder')) {
+              return false;
+            }
+            // 检查是否在占位符容器内（通过 data 属性）
+            if (element.hasAttribute?.('data-ai-placeholder')) {
+              return false;
+            }
+          }
+          node = node.parentNode;
+        }
+        
+        // 也检查选区起点和终点
+        const startContainer = range.startContainer;
+        const endContainer = range.endContainer;
+        const checkNode = (n: Node | null): boolean => {
+          while (n) {
+            if (n.nodeType === Node.ELEMENT_NODE) {
+              const el = n as Element;
+              if (el.tagName?.toLowerCase() === 'affine-ai-placeholder' ||
+                  el.classList?.contains('affine-ai-placeholder')) {
+                return true;
+              }
+            }
+            n = n.parentNode;
+          }
+          return false;
+        };
+        if (checkNode(startContainer) || checkNode(endContainer)) {
+          return false;
+        }
+      }
+    } catch {
+      // 忽略错误
+    }
 
     // if the selection is on an embed (ex. linked page), we should not display the format bar
     if (
@@ -152,6 +204,32 @@ export class AffineFormatBarWidget extends WidgetElement {
       };
 
       if (isEmbed()) {
+        return false;
+      }
+      
+      // 【v6.4】如果选中的文本在 aiPlaceholder 内，不显示 format bar
+      const isInPlaceholder = () => {
+        const [element] = this._selectedBlockElements;
+        const richText = element.querySelector<RichText>('rich-text');
+        const inline = richText?.inlineEditor;
+        if (!richText || !inline) {
+          return false;
+        }
+        const range = inline.getInlineRange();
+        if (!range) {
+          return false;
+        }
+        const deltas = inline.getDeltasByInlineRange(range);
+        // 检查选中范围内是否包含 aiPlaceholder 属性
+        for (const [delta] of deltas) {
+          if (delta?.attributes?.aiPlaceholder) {
+            return true;
+          }
+        }
+        return false;
+      };
+      
+      if (isInPlaceholder()) {
         return false;
       }
     }

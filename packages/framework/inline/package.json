@@ -30,8 +30,8 @@
     "yjs": "^13.6.15"
   },
   "exports": {
-    "./*": "./src/*.ts",
-    ".": "./src/index.ts"
+    "./*": "./dist/*.js",
+    ".": "./dist/index.js"
   },
   "publishConfig": {
     "access": "public",

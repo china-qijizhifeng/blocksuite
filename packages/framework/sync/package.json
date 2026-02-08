@@ -22,8 +22,8 @@
     "yjs": "^13.6.15"
   },
   "exports": {
-    ".": "./src/index.ts",
-    "./impl/*": "./src/impl/*"
+    ".": "./dist/index.js",
+    "./impl/*": "./dist/impl/*"
   },
   "publishConfig": {
     "access": "public",

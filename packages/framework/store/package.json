@@ -35,8 +35,8 @@
     "yjs": "^13.6.15"
   },
   "exports": {
-    ".": "./src/index.ts",
-    "./providers/*": "./src/providers/*.ts"
+    ".": "./dist/index.js",
+    "./providers/*": "./dist/providers/*.js"
   },
   "publishConfig": {
     "access": "public",

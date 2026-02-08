@@ -26,7 +26,7 @@
     "openai": "^4.47.2"
   },
   "exports": {
-    ".": "./src/index.ts",
+    ".": "./dist/index.js",
     "./themes/*": "./themes/*"
   },
   "publishConfig": {

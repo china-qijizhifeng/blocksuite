@@ -1,18 +1,13 @@
 import type { Chain, InitCommandCtx } from '@blocksuite/block-std';
-import { assertExists } from '@blocksuite/global/utils';
 import { html, type TemplateResult } from 'lit';
 
 import { toast } from '../../../_common/components/index.js';
-import { createSimplePortal } from '../../../_common/components/portal.js';
-import { DATABASE_CONVERT_WHITE_LIST } from '../../../_common/configs/quick-action/database-convert-view.js';
 import {
   BoldIcon,
   BulletedListIcon,
   CheckBoxIcon,
   CodeIcon,
   CopyIcon,
-  DatabaseTableViewIcon20,
-  FontLinkedDocIcon,
   Heading1Icon,
   Heading2Icon,
   Heading3Icon,
@@ -27,12 +22,6 @@ import {
   TextIcon,
   UnderlineIcon,
 } from '../../../_common/icons/index.js';
-import {
-  convertSelectedBlocksToLinkedDoc,
-  getTitleFromSelectedModels,
-  notifyDocCreated,
-  promptDocTitle,
-} from '../../../_common/utils/render-linked-doc.js';
 import type { AffineFormatBarWidget } from './format-bar.js';
 
 export type DividerConfigItem = {
@@ -135,7 +124,7 @@ export function toolbarDefaultConfig(toolbar: AffineFormatBarWidget) {
           .getSelectedModels()
           .with({
             onCopy: () => {
-              toast(toolbar.host, 'Copied to clipboard');
+              toast(toolbar.host, '已复制到剪贴板');
             },
           })
           .copySelectedModels()
@@ -143,163 +132,190 @@ export function toolbarDefaultConfig(toolbar: AffineFormatBarWidget) {
       },
       showWhen: () => true,
     })
-    .addInlineAction({
-      id: 'convert-to-database',
-      name: 'Group as Database',
-      icon: DatabaseTableViewIcon20,
-      isActive: () => false,
-      action: () => {
-        createSimplePortal({
-          template: html`<database-convert-view
-            .host=${toolbar.host}
-          ></database-convert-view>`,
-        });
-      },
-      showWhen: chain => {
-        const [_, ctx] = chain
-          .getSelectedModels({
-            types: ['block', 'text'],
-          })
-          .run();
-        const { selectedModels } = ctx;
-        if (!selectedModels || selectedModels.length === 0) return false;
-
-        return selectedModels.every(block =>
-          DATABASE_CONVERT_WHITE_LIST.includes(block.flavour)
-        );
-      },
-    })
-    .addInlineAction({
-      id: 'convert-to-linked-doc',
-      name: 'Create Linked Doc',
-      icon: FontLinkedDocIcon,
-      isActive: () => false,
-      action: (chain, formatBar) => {
-        const [_, ctx] = chain
-          .getSelectedModels({
-            types: ['block', 'text'],
-            mode: 'highest',
-          })
-          .run();
-        const { selectedModels } = ctx;
-        assertExists(selectedModels);
-        if (!selectedModels.length) return;
-
-        const host = formatBar.host;
-        host.selection.clear();
-
-        const doc = host.doc;
-        const autofill = getTitleFromSelectedModels(selectedModels);
-        void promptDocTitle(host, autofill).then(title => {
-          if (title === null) return;
-          const linkedDoc = convertSelectedBlocksToLinkedDoc(
-            doc,
-            selectedModels,
-            title
-          );
-          const linkedDocService = host.spec.getService(
-            'affine:embed-linked-doc'
-          );
-          linkedDocService.slots.linkedDocCreated.emit({ docId: linkedDoc.id });
-          notifyDocCreated(host, doc);
-          host.spec
-            .getService('affine:page')
-            .telemetryService?.track('DocCreated', {
-              control: 'create linked doc',
-              page: 'doc editor',
-              module: 'format toolbar',
-              type: 'embed-linked-doc',
-            });
-          host.spec
-            .getService('affine:page')
-            .telemetryService?.track('LinkedDocCreated', {
-              control: 'create linked doc',
-              page: 'doc editor',
-              module: 'format toolbar',
-              type: 'embed-linked-doc',
-            });
-        });
-      },
-      showWhen: chain => {
-        const [_, ctx] = chain
-          .getSelectedModels({
-            types: ['block', 'text'],
-            mode: 'highest',
-          })
-          .run();
-        const { selectedModels } = ctx;
-        return !!selectedModels && selectedModels.length > 0;
-      },
-    })
+    // 【已移除】转为数据库、创建关联文档等复杂功能
     .addBlockTypeSwitch({
       flavour: 'affine:paragraph',
       type: 'text',
-      name: 'Text',
+      name: '文本',
       icon: TextIcon,
     })
     .addBlockTypeSwitch({
       flavour: 'affine:paragraph',
       type: 'h1',
-      name: 'Heading 1',
+      name: '标题 1',
       icon: Heading1Icon,
     })
     .addBlockTypeSwitch({
       flavour: 'affine:paragraph',
       type: 'h2',
-      name: 'Heading 2',
+      name: '标题 2',
       icon: Heading2Icon,
     })
     .addBlockTypeSwitch({
       flavour: 'affine:paragraph',
       type: 'h3',
-      name: 'Heading 3',
+      name: '标题 3',
       icon: Heading3Icon,
     })
     .addBlockTypeSwitch({
       flavour: 'affine:paragraph',
       type: 'h4',
-      name: 'Heading 4',
+      name: '标题 4',
       icon: Heading4Icon,
     })
     .addBlockTypeSwitch({
       flavour: 'affine:paragraph',
       type: 'h5',
-      name: 'Heading 5',
+      name: '标题 5',
       icon: Heading5Icon,
     })
     .addBlockTypeSwitch({
       flavour: 'affine:paragraph',
       type: 'h6',
-      name: 'Heading 6',
+      name: '标题 6',
       icon: Heading6Icon,
     })
     .addBlockTypeSwitch({
       flavour: 'affine:list',
       type: 'bulleted',
-      name: 'Bulleted List',
+      name: '无序列表',
       icon: BulletedListIcon,
     })
     .addBlockTypeSwitch({
       flavour: 'affine:list',
       type: 'numbered',
-      name: 'Numbered List',
+      name: '有序列表',
       icon: NumberedListIcon,
     })
     .addBlockTypeSwitch({
       flavour: 'affine:list',
       type: 'todo',
-      name: 'To-do List',
+      name: '待办清单',
       icon: CheckBoxIcon,
     })
     .addBlockTypeSwitch({
       flavour: 'affine:code',
-      name: 'Code Block',
+      name: '代码块',
       icon: CodeIcon,
     })
     .addBlockTypeSwitch({
       flavour: 'affine:paragraph',
       type: 'quote',
-      name: 'Quote',
+      name: '引用',
       icon: QuoteIcon,
+    })
+    // ---------------------------------------------------------
+    // 批注按钮（自定义功能）
+    // =====================
+    // 关键修复：使用 formatText 写入 comment 属性到 Y.Text
+    // 这样批注数据会被 Yjs 持久化，不会丢失
+    // =====================
+    // ---------------------------------------------------------
+    .addDivider()
+    .addInlineAction({
+      id: 'add-comment',
+      name: '批注',
+      icon: html`<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>`,
+      isActive: chain => {
+        // 检查选中文本是否已有批注
+        const [result] = chain.isTextStyleActive({ key: 'comment' }).run();
+        return result;
+      },
+      action: chain => {
+        // =====================
+        // 【v6.5 修复】批注功能 - 立即写入 comment 到 delta
+        // =====================
+        // 
+        // 批注必须立即写入 delta，否则选区丢失后无法写入
+        // 用户输入内容后更新 content 字段
+        // =====================
+        
+        // 步骤 1：获取选中文本和位置
+        const selection = window.getSelection();
+        if (!selection || selection.rangeCount === 0) return;
+        
+        const range = selection.getRangeAt(0);
+        const rect = range.getBoundingClientRect();
+        const selectedText = selection.toString().trim();
+        
+        if (!selectedText) return;
+        
+        // 步骤 2：生成唯一的批注 ID
+        const commentId = `comment-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+        
+        // 步骤 3：【关键】立即写入 comment 到 delta
+        // content 先设为空，用户输入后再更新
+        const commentData = { 
+          id: commentId,
+          content: '',  // 等待用户输入
+          selectedText: selectedText
+        };
+        chain
+          .getTextSelection()
+          .formatText({
+            styles: {
+              comment: commentData as unknown
+            }
+          })
+          .run();
+        
+        console.log('[BlockSuite] ✅ 批注标记已写入 delta:', { commentId, selectedText });
+        
+        // 步骤 4：触发事件，显示批注输入框
+        setTimeout(() => {
+          window.dispatchEvent(new CustomEvent('blocksuite-add-comment', {
+            detail: { 
+              commentId,
+              selectedText, 
+              position: { x: rect.left + rect.width / 2, y: rect.bottom },
+              rect: { top: rect.top, left: rect.left, width: rect.width, height: rect.height },
+            }
+          }));
+        }, 50);
+      },
+      showWhen: chain => {
+        // 当有文本选中时显示批注按钮
+        const [_, ctx] = chain
+          .getTextSelection()
+          .getSelectedBlocks({ types: ['text'] })
+          .run();
+        const textSelection = ctx.currentTextSelection;
+        return !!textSelection && !textSelection.isCollapsed();
+      },
+    })
+    // ---------------------------------------------------------
+    // 【v6.4】添加到对话框按钮
+    // =====================
+    // 将选中文本作为引用发送到宿主对话框
+    // =====================
+    // ---------------------------------------------------------
+    .addInlineAction({
+      id: 'add-to-chat',
+      name: '引用',
+      icon: html`<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><path d="M8 10h.01"></path><path d="M12 10h.01"></path><path d="M16 10h.01"></path></svg>`,
+      isActive: () => false,
+      action: () => {
+        // 获取选中文本
+        const selection = window.getSelection();
+        if (!selection || selection.rangeCount === 0) return;
+        
+        const selectedText = selection.toString().trim();
+        if (!selectedText) return;
+        
+        // 触发事件，由前端处理发送到对话框
+        console.log('[BlockSuite] 📝 添加到对话框:', selectedText.substring(0, 50));
+        window.dispatchEvent(new CustomEvent('blocksuite-add-to-chat', {
+          detail: { selectedText }
+        }));
+      },
+      showWhen: chain => {
+        // 当有文本选中时显示
+        const [_, ctx] = chain
+          .getTextSelection()
+          .getSelectedBlocks({ types: ['text'] })
+          .run();
+        const textSelection = ctx.currentTextSelection;
+        return !!textSelection && !textSelection.isCollapsed();
+      },
     });
 }

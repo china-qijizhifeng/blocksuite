@@ -13,9 +13,9 @@
   "sideEffects": false,
   "exports": {
     ".": "./index.d.ts",
-    "./utils": "./src/utils.ts",
-    "./env": "./src/env/index.ts",
-    "./exceptions": "./src/exceptions/index.ts"
+    "./utils": "./dist/utils.js",
+    "./env": "./dist/env/index.js",
+    "./exceptions": "./dist/exceptions/index.js"
   },
   "typesVersions": {
     "*": {
