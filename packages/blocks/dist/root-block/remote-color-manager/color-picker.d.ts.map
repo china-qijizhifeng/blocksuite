@@ -1,0 +1,1 @@
+{"version":3,"file":"color-picker.d.ts","sourceRoot":"","sources":["../../../src/root-block/remote-color-manager/color-picker.ts"],"names":[],"mappings":"AAAA,cAAM,YAAY,CAAC,CAAC;IAClB,OAAO,CAAC,cAAc,CAAM;IAE5B,OAAO,CAAC,UAAU,CAAM;gBAEZ,KAAK,EAAE,CAAC,EAAE;IAKtB,OAAO,CAAC,WAAW;IAInB,IAAI,IAAI,CAAC;CAUV;AAED,eAAO,MAAM,iBAAiB,sBAS5B,CAAC"}

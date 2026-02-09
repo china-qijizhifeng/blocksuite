@@ -1,0 +1,42 @@
+import { EmbedBlockElement } from '../_common/embed-block-helper/index.js';
+import type { DocMode } from '../_common/types.js';
+import type { SurfaceRefBlockService } from '../surface-ref-block/index.js';
+import type { SurfaceRefRenderer } from '../surface-ref-block/surface-ref-renderer.js';
+import type { EmbedLinkedDocModel, EmbedLinkedDocStyles } from './embed-linked-doc-model.js';
+import type { EmbedLinkedDocBlockService } from './embed-linked-doc-service.js';
+export declare class EmbedLinkedDocBlockComponent extends EmbedBlockElement<EmbedLinkedDocModel, EmbedLinkedDocBlockService> {
+    get editorMode(): DocMode;
+    get linkedDoc(): import("@blocksuite/store").Doc | null;
+    get docTitle(): string;
+    private get _rootService();
+    static styles: import("lit").CSSResult;
+    private accessor _linkedDocMode;
+    private accessor _docUpdatedAt;
+    private accessor _loading;
+    _cardStyle: (typeof EmbedLinkedDocStyles)[number];
+    _width: number;
+    _height: number;
+    accessor isNoteContentEmpty: boolean;
+    accessor isBannerEmpty: boolean;
+    accessor surfaceRefService: SurfaceRefBlockService;
+    accessor isError: boolean;
+    accessor surfaceRefRenderer: SurfaceRefRenderer | undefined;
+    accessor bannerContainer: Promise<HTMLDivElement>;
+    accessor noteContainer: Promise<HTMLDivElement>;
+    private _load;
+    private _isDocEmpty;
+    private _setDocUpdatedAt;
+    private _selectBlock;
+    private _handleClick;
+    private _handleDoubleClick;
+    open: () => void;
+    covertToInline: () => void;
+    convertToEmbed: () => void;
+    refreshData: () => void;
+    cleanUpSurfaceRefRenderer: () => void;
+    updated(): void;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
+    renderBlock(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=embed-linked-doc-block.d.ts.map

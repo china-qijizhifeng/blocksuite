@@ -1,0 +1,67 @@
+import type { IBound } from '../consts.js';
+import type { IVec } from './vec.js';
+import { type SerializedXYWH, type XYWH } from './xywh.js';
+export declare class Bound implements IBound {
+    get points(): IVec[];
+    get midPoints(): IVec[];
+    get center(): IVec;
+    set center([cx, cy]: IVec);
+    get minX(): number;
+    get minY(): number;
+    get maxX(): number;
+    get maxY(): number;
+    get tl(): IVec;
+    get tr(): number[];
+    get bl(): number[];
+    get br(): number[];
+    get verticalLine(): IVec[];
+    get horizontalLine(): IVec[];
+    get upperLine(): IVec[];
+    get lowerLine(): IVec[];
+    get leftLine(): IVec[];
+    get rightLine(): IVec[];
+    x: number;
+    y: number;
+    w: number;
+    h: number;
+    constructor(x?: number, y?: number, w?: number, h?: number);
+    containsPoint([x, y]: IVec): boolean;
+    intersectLine(sp: IVec, ep: IVec, infinite?: boolean): IVec[] | null;
+    isIntersectWithBound(bound: Bound, epsilon?: number): boolean;
+    isOverlapWithBound(bound: Bound, epsilon?: number): boolean;
+    unite(bound: Bound): Bound;
+    include(point: IVec): Bound;
+    getRelativePoint([x, y]: IVec): IVec;
+    toRelative([x, y]: IVec): IVec;
+    serialize(): SerializedXYWH;
+    clone(): Bound;
+    isHorizontalCross(bound: Bound): boolean;
+    isVerticalCross(bound: Bound): boolean;
+    horizontalDistance(bound: Bound): number;
+    verticalDistance(bound: Bound): number;
+    expand(left: number, top?: number, right?: number, bottom?: number): Bound;
+    isPointInBound([x, y]: IVec, tolerance?: number): boolean;
+    isPointNearBound([x, y]: IVec, tolerance?: number): boolean;
+    contains(bound: Bound): boolean;
+    getVerticesAndMidpoints(): IVec[];
+    toXYWH(): XYWH;
+    static deserialize(s: string): Bound;
+    static serialize(bound: IBound): `[${number},${number},${number},${number}]`;
+    static fromXYWH(xywh: XYWH): Bound;
+    static from(arg1: IBound): Bound;
+    static fromDOMRect({ left, top, width, height }: DOMRect): Bound;
+    static fromPoints(points: IVec[]): Bound;
+    static fromCenter(center: IVec, width: number, height: number): Bound;
+}
+export declare function getCommonBound(bounds: IBound[]): Bound | null;
+export declare function getElementsBound(bounds: IBound[]): Bound;
+export declare function getBoundFromPoints(points: number[][]): Bound;
+export declare function inflateBound(bound: IBound, delta: number): Bound;
+export declare function transformPointsToNewBound<T extends {
+    x: number;
+    y: number;
+}>(points: T[], oldBound: IBound, oldMargin: number, newBound: IBound, newMargin: number): {
+    points: T[];
+    bound: Bound;
+};
+//# sourceMappingURL=bound.d.ts.map

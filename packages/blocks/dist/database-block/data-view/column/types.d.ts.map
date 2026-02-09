@@ -1,0 +1,1 @@
+{"version":3,"file":"types.d.ts","sourceRoot":"","sources":["../../../../src/database-block/data-view/column/types.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,SAAS,EAAE,MAAM,mCAAmC,CAAC;AAEnE,MAAM,MAAM,gBAAgB,GAAG;IAC7B,OAAO,EAAE,SAAS,EAAE,CAAC;CACtB,CAAC"}

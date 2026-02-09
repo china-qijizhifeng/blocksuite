@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../src/spec/index.ts"],"names":[],"mappings":"AAAA,cAAc,YAAY,CAAC;AAC3B,cAAc,iBAAiB,CAAC;AAChC,cAAc,WAAW,CAAC","sourcesContent":["export * from './slots.js';\nexport * from './spec-store.js';\nexport * from './type.js';\n"]}

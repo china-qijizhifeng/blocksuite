@@ -1,0 +1,1 @@
+{"version":3,"file":"components.js","sourceRoot":"","sources":["../../../src/database-block/data-view/components.ts"],"names":[],"mappings":"AAAA,OAAO,gBAAgB,CAAC","sourcesContent":["import './data-view.js';\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../../../src/_common/inline/presets/nodes/ai-placeholder/index.ts"],"names":[],"mappings":"AAAA;;GAEG;AACH,cAAc,0BAA0B,CAAC","sourcesContent":["/**\n * AI 占位符组件导出\n */\nexport * from './ai-placeholder-node.js';\n"]}

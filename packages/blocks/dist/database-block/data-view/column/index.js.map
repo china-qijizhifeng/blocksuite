@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../src/database-block/data-view/column/index.ts"],"names":[],"mappings":"AAAA,cAAc,gBAAgB,CAAC;AAC/B,OAAO,EAAE,YAAY,EAAE,MAAM,oBAAoB,CAAC;AAClD,cAAc,cAAc,CAAC","sourcesContent":["export * from './base-cell.js';\nexport { ColumnConfig } from './column-config.js';\nexport * from './manager.js';\n"]}

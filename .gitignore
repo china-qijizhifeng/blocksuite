@@ -18,7 +18,7 @@ node_modules
 /.coverage
 
 # Build out
-dist/
+# dist/ - 保留 dist 目录以供 workspace 包使用
 build
 temp
 tsconfig.tsbuildinfo

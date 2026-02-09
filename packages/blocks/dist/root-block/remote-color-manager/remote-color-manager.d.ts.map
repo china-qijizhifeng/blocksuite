@@ -1,0 +1,1 @@
+{"version":3,"file":"remote-color-manager.d.ts","sourceRoot":"","sources":["../../../src/root-block/remote-color-manager/remote-color-manager.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,UAAU,EAAE,MAAM,uBAAuB,CAAC;AAIxD,qBAAa,kBAAkB;IASjB,QAAQ,CAAC,IAAI,EAAE,UAAU;IARrC,OAAO,KAAK,SAAS,GAEpB;IAED,OAAO,KAAK,WAAW,GAEtB;gBAEoB,IAAI,EAAE,UAAU;IAYrC,GAAG,CAAC,EAAE,EAAE,MAAM;CAmBf"}

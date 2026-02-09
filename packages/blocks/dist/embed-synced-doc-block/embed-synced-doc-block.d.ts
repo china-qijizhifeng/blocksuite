@@ -1,0 +1,53 @@
+import './components/embed-synced-doc-card.js';
+import type { EditorHost } from '@blocksuite/block-std';
+import { type PropertyValues } from 'lit';
+import { EmbedBlockElement } from '../_common/embed-block-helper/embed-block-element.js';
+import { type DocMode } from '../_common/types.js';
+import type { EmbedSyncedDocCard } from './components/embed-synced-doc-card.js';
+import type { EmbedSyncedDocModel } from './embed-synced-doc-model.js';
+import type { EmbedSyncedDocBlockService } from './embed-synced-doc-service.js';
+export declare class EmbedSyncedDocBlockComponent extends EmbedBlockElement<EmbedSyncedDocModel, EmbedSyncedDocBlockService> {
+    get syncedDoc(): import("@blocksuite/store").Doc | null;
+    get blockState(): {
+        isLoading: boolean;
+        isError: boolean;
+        isDeleted: boolean;
+        isCycle: boolean;
+    };
+    get editorMode(): DocMode;
+    get docUpdatedAt(): Date;
+    get docTitle(): string;
+    private get _rootService();
+    private get isPageMode();
+    static styles: import("lit").CSSResult;
+    private _pageFilter;
+    accessor depth: number;
+    private accessor _syncedDocMode;
+    private accessor _isEmptySyncedDoc;
+    private accessor _docUpdatedAt;
+    private accessor _loading;
+    private accessor _error;
+    private accessor _deleted;
+    private accessor _cycle;
+    accessor useCaptionEditor: boolean;
+    accessor syncedDocCard: EmbedSyncedDocCard | null;
+    accessor syncedDocEditorHost: EditorHost | null;
+    private _checkCycle;
+    private _load;
+    private _setDocUpdatedAt;
+    private _isClickAtBorder;
+    private _selectBlock;
+    private _handleClick;
+    private _buildPreviewSpec;
+    private _renderSyncedView;
+    private _initEdgelessFitEffect;
+    open: () => void;
+    covertToInline: () => void;
+    convertToCard: () => void;
+    refreshData: () => void;
+    connectedCallback(): void;
+    firstUpdated(): void;
+    updated(changedProperties: PropertyValues): void;
+    renderBlock(): import("lit").TemplateResult<1>;
+}
+//# sourceMappingURL=embed-synced-doc-block.d.ts.map

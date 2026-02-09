@@ -1,0 +1,1 @@
+{"version":3,"file":"helper.js","sourceRoot":"","sources":["../../../src/_common/utils/helper.ts"],"names":[],"mappings":"AAAA,MAAM,UAAU,YAAY,CAAC,KAAc;IACzC,OAAO,KAAK,YAAY,KAAK,IAAI,KAAK,CAAC,IAAI,KAAK,YAAY,CAAC;AAC/D,CAAC","sourcesContent":["export function isAbortError(error: unknown) {\n  return error instanceof Error && error.name === 'AbortError';\n}\n"]}

@@ -1,0 +1,17 @@
+import type { EmbedGithubModel } from './embed-github-model.js';
+import type { EmbedGithubBlockService } from './embed-github-service.js';
+export * from './embed-github-block.js';
+export * from './embed-github-model.js';
+export * from './embed-github-service.js';
+export * from './embed-github-spec.js';
+declare global {
+    namespace BlockSuite {
+        interface BlockModels {
+            'affine:embed-github': EmbedGithubModel;
+        }
+        interface BlockServices {
+            'affine:embed-github': EmbedGithubBlockService;
+        }
+    }
+}
+//# sourceMappingURL=index.d.ts.map

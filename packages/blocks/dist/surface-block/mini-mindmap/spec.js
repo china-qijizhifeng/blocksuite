@@ -1,0 +1,24 @@
+import { literal } from 'lit/static-html.js';
+import { RootBlockSchema } from '../../root-block/root-model.js';
+import { SurfaceBlockSchema } from '../surface-model.js';
+import { MindmapService } from './service.js';
+export const MiniMindmapSpecs = [
+    {
+        schema: RootBlockSchema,
+        service: MindmapService,
+        view: {
+            component: literal `mini-mindmap-root-block`,
+        },
+    },
+    {
+        schema: SurfaceBlockSchema,
+        view: {
+            component: literal `mini-mindmap-surface-block`,
+        },
+    },
+];
+export const MiniMindmapSchema = [
+    RootBlockSchema,
+    SurfaceBlockSchema,
+];
+//# sourceMappingURL=spec.js.map

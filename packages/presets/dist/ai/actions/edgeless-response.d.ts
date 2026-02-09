@@ -1,0 +1,55 @@
+import type { EditorHost } from '@blocksuite/block-std';
+import type { AffineAIPanelWidget, AIItemConfig, EdgelessCopilotWidget, EdgelessElementToolbarWidget } from '@blocksuite/blocks';
+import type { TemplateResult } from 'lit';
+import type { CtxRecord } from './types.js';
+type FinishConfig = Exclude<AffineAIPanelWidget['config'], null>['finishStateConfig'];
+type ErrorConfig = Exclude<AffineAIPanelWidget['config'], null>['errorStateConfig'];
+export declare function getElementToolbar(host: EditorHost): EdgelessElementToolbarWidget;
+export declare function getTriggerEntry(host: EditorHost): "selection" | "toolbar";
+export declare function discard(panel: AffineAIPanelWidget, _: EdgelessCopilotWidget): AIItemConfig;
+export declare function retry(panel: AffineAIPanelWidget): AIItemConfig;
+export declare function createInsertResp<T extends keyof BlockSuitePresets.AIActions>(id: T, handler: (host: EditorHost, ctx: CtxRecord) => void, host: EditorHost, ctx: CtxRecord, buttonText?: string): AIItemConfig;
+export declare function useAsCaption<T extends keyof BlockSuitePresets.AIActions>(id: T, host: EditorHost): AIItemConfig;
+export declare const responses: {
+    [key in keyof Partial<BlockSuitePresets.AIActions>]: (host: EditorHost, ctx: CtxRecord) => void;
+};
+export declare function getInsertAndReplaceHandler<T extends keyof BlockSuitePresets.AIActions>(id: T, host: EditorHost, ctx: CtxRecord, variants?: Omit<Parameters<BlockSuitePresets.AIActions[T]>[0], keyof BlockSuitePresets.AITextActionOptions>): AIItemConfig;
+export declare function actionToResponse<T extends keyof BlockSuitePresets.AIActions>(id: T, host: EditorHost, ctx: CtxRecord, variants?: Omit<Parameters<BlockSuitePresets.AIActions[T]>[0], keyof BlockSuitePresets.AITextActionOptions>): FinishConfig;
+export declare function actionToGenerating<T extends keyof BlockSuitePresets.AIActions>(id: T, generatingIcon: TemplateResult<1>): {
+    generatingIcon: TemplateResult<1>;
+    stages: {
+        chat?: string[] | undefined;
+        summary?: string[] | undefined;
+        improveWriting?: string[] | undefined;
+        improveGrammar?: string[] | undefined;
+        fixSpelling?: string[] | undefined;
+        createHeadings?: string[] | undefined;
+        makeLonger?: string[] | undefined;
+        makeShorter?: string[] | undefined;
+        continueWriting?: string[] | undefined;
+        checkCodeErrors?: string[] | undefined;
+        explainCode?: string[] | undefined;
+        writeArticle?: string[] | undefined;
+        writeTwitterPost?: string[] | undefined;
+        writePoem?: string[] | undefined;
+        writeBlogPost?: string[] | undefined;
+        brainstorm?: string[] | undefined;
+        writeOutline?: string[] | undefined;
+        explainImage?: string[] | undefined;
+        findActions?: string[] | undefined;
+        brainstormMindmap?: string[] | undefined;
+        expandMindmap?: string[] | undefined;
+        createSlides?: string[] | undefined;
+        explain?: string[] | undefined;
+        translate?: string[] | undefined;
+        changeTone?: string[] | undefined;
+        makeItReal?: string[] | undefined;
+        createImage?: string[] | undefined;
+        processImage?: string[] | undefined;
+        filterImage?: string[] | undefined;
+        generateCaption?: string[] | undefined;
+    }[T];
+};
+export declare function actionToErrorResponse<T extends keyof BlockSuitePresets.AIActions>(panel: AffineAIPanelWidget, id: T, host: EditorHost, ctx: CtxRecord, variants?: Omit<Parameters<BlockSuitePresets.AIActions[T]>[0], keyof BlockSuitePresets.AITextActionOptions>): ErrorConfig;
+export {};
+//# sourceMappingURL=edgeless-response.d.ts.map

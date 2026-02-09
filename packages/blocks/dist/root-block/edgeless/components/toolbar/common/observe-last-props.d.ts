@@ -1,0 +1,5 @@
+import type { LastProps } from '../../../../../surface-block/managers/edit-session.js';
+import type { EdgelessRootService } from '../../../edgeless-root-service.js';
+export declare const observeLastProps: <T extends "affine:note" | "text" | "connector" | "brush" | "shape">(edgelessService: EdgelessRootService, toolType: T, fields: Array<keyof LastProps[T]>, initStates: Record<string, unknown>, onChange?: (updates: Partial<LastProps[T]>, originalProps: Record<string, unknown>) => void) => import("@blocksuite/global/utils").Disposable;
+export declare const applyLastProps: <T extends "affine:note" | "text" | "connector" | "brush" | "shape">(service: EdgelessRootService, toolType: T, fields: Array<keyof LastProps[T]>, initStates: Record<string, unknown>) => Record<string, unknown>;
+//# sourceMappingURL=observe-last-props.d.ts.map

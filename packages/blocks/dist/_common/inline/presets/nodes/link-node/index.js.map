@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../../../src/_common/inline/presets/nodes/link-node/index.ts"],"names":[],"mappings":"AAAA,OAAO,kBAAkB,CAAC;AAE1B,OAAO,EAAE,UAAU,EAAE,MAAM,kBAAkB,CAAC","sourcesContent":["import './affine-link.js';\n\nexport { AffineLink } from './affine-link.js';\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"file":"colors.d.ts","sourceRoot":"","sources":["../../../../../src/database-block/data-view/utils/tags/colors.ts"],"names":[],"mappings":"AAAA,MAAM,MAAM,iBAAiB,GAAG;IAC9B,KAAK,EAAE,MAAM,CAAC;IACd,IAAI,EAAE,MAAM,CAAC;CACd,CAAC;AAEF,eAAO,MAAM,kBAAkB,EAAE,iBAAiB,EAyCjD,CAAC;AAiBF,eAAO,MAAM,WAAW,cAAmB,CAAC"}

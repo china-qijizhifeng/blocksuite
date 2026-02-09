@@ -1,0 +1,1 @@
+{"version":3,"file":"ai-spec.d.ts","sourceRoot":"","sources":["../../src/ai/ai-spec.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,SAAS,EAAE,MAAM,uBAAuB,CAAC;AAgCvD,eAAO,MAAM,mBAAmB,EAAE,SA+BjC,CAAC;AAEF,eAAO,MAAM,uBAAuB,EAAE,SAwCrC,CAAC;AAEF,eAAO,MAAM,oBAAoB,EAAE,SAwBlC,CAAC;AAEF,eAAO,MAAM,eAAe,EAAE,SAU7B,CAAC;AAEF,eAAO,MAAM,gBAAgB,EAAE,SAU9B,CAAC"}

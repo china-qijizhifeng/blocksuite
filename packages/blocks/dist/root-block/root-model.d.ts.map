@@ -1,0 +1,1 @@
+{"version":3,"file":"root-model.d.ts","sourceRoot":"","sources":["../../src/root-block/root-model.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,IAAI,EAAE,MAAM,mBAAmB,CAAC;AAC9C,OAAO,EAAE,UAAU,EAAqB,MAAM,mBAAmB,CAAC;AAElE,KAAK,cAAc,GAAG;IACpB,KAAK,EAAE,IAAI,CAAC;CACb,CAAC;AAEF,qBAAa,cAAe,SAAQ,UAAU,CAAC,cAAc,CAAC;;CAiB7D;AAED,eAAO,MAAM,eAAe;;;;;;;;;;;CAU1B,CAAC"}

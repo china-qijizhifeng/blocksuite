@@ -1,0 +1,2 @@
+export declare const CustomPageEditorBlockSpecs: import("@blocksuite/block-std").BlockSpec<string, import("@blocksuite/block-std").BlockService<import("@blocksuite/store").BlockModel<object>>>[];
+//# sourceMappingURL=custom-specs.d.ts.map

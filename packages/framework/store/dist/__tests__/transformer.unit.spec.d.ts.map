@@ -1,0 +1,1 @@
+{"version":3,"file":"transformer.unit.spec.d.ts","sourceRoot":"","sources":["../../src/__tests__/transformer.unit.spec.ts"],"names":[],"mappings":"AAKA,OAAO,EACL,KAAK,UAAU,EAIhB,MAAM,oBAAoB,CAAC;AA8H5B,OAAO,CAAC,MAAM,CAAC;IACb,UAAU,UAAU,CAAC;QACnB,UAAU,WAAW;YACnB,IAAI,EAAE,UAAU,CAAC;SAClB;KACF;CACF"}

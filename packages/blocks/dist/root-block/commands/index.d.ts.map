@@ -1,0 +1,1 @@
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/root-block/commands/index.ts"],"names":[],"mappings":"AAAA,cAAc,uBAAuB,CAAC;AACtC,cAAc,uBAAuB,CAAC;AACtC,cAAc,sBAAsB,CAAC;AACrC,cAAc,sBAAsB,CAAC;AAErC,OAAO,CAAC,MAAM,CAAC;IACb,UAAU,UAAU,CAAC;QAGnB,UAAU,cAAc;YACtB,oBAAoB,CAAC,EAAE,MAAM,CAAC;SAC/B;KACF;CACF"}

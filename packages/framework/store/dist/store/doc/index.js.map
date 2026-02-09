@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/store/doc/index.ts"],"names":[],"mappings":"AAAA,cAAc,YAAY,CAAC;AAC3B,cAAc,uBAAuB,CAAC;AACtC,cAAc,UAAU,CAAC","sourcesContent":["export * from './block.js';\nexport * from './block-collection.js';\nexport * from './doc.js';\n"]}

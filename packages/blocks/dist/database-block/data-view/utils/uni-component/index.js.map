@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../../src/database-block/data-view/utils/uni-component/index.ts"],"names":[],"mappings":"AAAA,cAAc,oBAAoB,CAAC","sourcesContent":["export * from './uni-component.js';\n"]}

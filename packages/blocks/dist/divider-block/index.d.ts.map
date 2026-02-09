@@ -1,0 +1,1 @@
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../src/divider-block/index.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,iBAAiB,EAAE,MAAM,oBAAoB,CAAC;AAE5D,cAAc,oBAAoB,CAAC;AACnC,cAAc,oBAAoB,CAAC;AAEnC,OAAO,CAAC,MAAM,CAAC;IACb,UAAU,UAAU,CAAC;QACnB,UAAU,WAAW;YACnB,gBAAgB,EAAE,iBAAiB,CAAC;SACrC;KACF;CACF"}

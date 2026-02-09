@@ -1,0 +1,1 @@
+{"version":3,"file":"note-service.d.ts","sourceRoot":"","sources":["../../src/note-block/note-service.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,uBAAuB,CAAC;AAuBrD,OAAO,EAAE,KAAK,cAAc,EAAmB,MAAM,iBAAiB,CAAC;AAEvE,qBAAa,gBAAiB,SAAQ,YAAY,CAAC,cAAc,CAAC;IAChE,OAAO,CAAC,iBAAiB,CAkGvB;IAEO,OAAO;CAgBjB"}

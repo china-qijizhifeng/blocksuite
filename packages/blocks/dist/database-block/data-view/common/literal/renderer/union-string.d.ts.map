@@ -1,0 +1,1 @@
+{"version":3,"file":"union-string.d.ts","sourceRoot":"","sources":["../../../../../../src/database-block/data-view/common/literal/renderer/union-string.ts"],"names":[],"mappings":"AAGA,OAAO,KAAK,EAAE,MAAM,EAAE,MAAM,gCAAgC,CAAC;AAC7D,OAAO,EAAE,cAAc,EAAE,MAAM,sBAAsB,CAAC;AAEtD,qBACa,UAAW,SAAQ,cAAc,CAAC,MAAM,EAAE,MAAM,CAAC;IACnD,MAAM;CAGhB"}

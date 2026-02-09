@@ -1,0 +1,1 @@
+{"version":3,"file":"ai-loading.d.ts","sourceRoot":"","sources":["../../../src/ai/chat-panel/ai-loading.ts"],"names":[],"mappings":"AACA,OAAO,EAAa,UAAU,EAAE,MAAM,KAAK,CAAC;;AAK5C,qBACa,SAAU,SAAQ,cAA0B;IACvD,OAAgB,MAAM,0BAqCpB;IAGF,QAAQ,CAAC,cAAc,EAAG,MAAM,IAAI,CAAC;IAE5B,MAAM;CAQhB;AAED,OAAO,CAAC,MAAM,CAAC;IACb,UAAU,qBAAqB;QAC7B,YAAY,EAAE,SAAS,CAAC;KACzB;CACF"}

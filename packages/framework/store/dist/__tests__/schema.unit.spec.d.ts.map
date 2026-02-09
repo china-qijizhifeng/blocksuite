@@ -1,0 +1,1 @@
+{"version":3,"file":"schema.unit.spec.d.ts","sourceRoot":"","sources":["../../src/__tests__/schema.unit.spec.ts"],"names":[],"mappings":"AAMA,OAAO,EAAE,KAAK,UAAU,EAAqB,MAAM,mBAAmB,CAAC;AA0HvE,OAAO,CAAC,MAAM,CAAC;IACb,UAAU,UAAU,CAAC;QACnB,UAAU,WAAW;YACnB,yBAAyB,EAAE,UAAU,CAAC;YACtC,iCAAiC,EAAE,UAAU,CAAC;SAC/C;KACF;CACF"}

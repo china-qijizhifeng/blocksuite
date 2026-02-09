@@ -1,0 +1,1 @@
+{"version":3,"file":"high-lighter.d.ts","sourceRoot":"","sources":["../../../src/code-block/utils/high-lighter.ts"],"names":[],"mappings":"AAAA,OAAO,EACL,KAAK,yBAAyB,EAC9B,KAAK,eAAe,EAEpB,KAAK,WAAW,EAChB,KAAK,iBAAiB,EACvB,MAAM,OAAO,CAAC;AAIf,eAAO,MAAM,cAAc,YAChB,0BAA0B,eAAe,EAAE,MAAM,CAAC,GAAG;IAE5D,KAAK,EAAE,CAAC,eAAe,GAAG,iBAAiB,CAAC,EAAE,CAAC;CAChD,yBAaF,CAAC"}

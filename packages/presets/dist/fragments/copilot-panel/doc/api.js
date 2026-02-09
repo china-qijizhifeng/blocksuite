@@ -1,0 +1,18 @@
+import { copilotConfig } from '../copilot-service/copilot-config.js';
+import { ChatServiceKind } from '../copilot-service/service-base.js';
+export const ChatFeatureKey = 'chat';
+export const getChatService = () => {
+    return copilotConfig.getService(ChatFeatureKey, ChatServiceKind);
+};
+export const userText = (text) => {
+    return {
+        role: 'user',
+        content: [
+            {
+                type: 'text',
+                text,
+            },
+        ],
+    };
+};
+//# sourceMappingURL=api.js.map

@@ -1,0 +1,1 @@
+{"version":3,"file":"consts.js","sourceRoot":"","sources":["../../../../src/database-block/data-view/widget/consts.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,MAAM,uBAAuB,GAAG,UAAU,CAAC;AAClD,MAAM,CAAC,MAAM,qBAAqB,GAAG,EAAE,CAAC","sourcesContent":["export const EMPTY_TITLE_PLACEHOLDER = 'Untitled';\nexport const DATABASE_TITLE_LENGTH = 50;\n"]}

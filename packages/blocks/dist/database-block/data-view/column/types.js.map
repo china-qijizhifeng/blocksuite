@@ -1,0 +1,1 @@
+{"version":3,"file":"types.js","sourceRoot":"","sources":["../../../../src/database-block/data-view/column/types.ts"],"names":[],"mappings":"","sourcesContent":["import type { SelectTag } from '../utils/tags/multi-tag-select.js';\n\nexport type SelectColumnData = {\n  options: SelectTag[];\n};\n"]}

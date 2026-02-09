@@ -1,0 +1,1 @@
+{"version":3,"file":"point.js","sourceRoot":"","sources":["../../../src/surface-block/utils/point.ts"],"names":[],"mappings":"","sourcesContent":["export interface IPoint {\n  x: number;\n  y: number;\n}\n"]}
