@@ -139,8 +139,8 @@ export function toolbarDefaultConfig(toolbar) {
         .addDivider()
         .addInlineAction({
         id: 'add-comment',
-        name: '批注',
-        icon: html `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>`,
+        name: 'AI 批注',
+        icon: html `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="#f59e0b" opacity="0.15" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 7.5c0.03-0.15 0.24-0.15 0.27 0 0.16 0.78 0.77 1.39 1.55 1.55 0.15 0.03 0.15 0.24 0 0.27-0.78 0.16-1.39 0.77-1.55 1.55-0.03 0.15-0.24 0.15-0.27 0-0.16-0.78-0.77-1.39-1.55-1.55-0.15-0.03-0.15-0.24 0-0.27 0.78-0.16 1.39-0.77 1.55-1.55z" fill="#f59e0b" stroke="#f59e0b" stroke-width="0.3"/><path d="M8.2 10c0.02-0.1 0.16-0.1 0.18 0 0.1 0.52 0.51 0.93 1.03 1.03 0.1 0.02 0.1 0.16 0 0.18-0.52 0.1-0.93 0.51-1.03 1.03-0.02 0.1-0.16 0.1-0.18 0-0.1-0.52-0.51-0.93-1.03-1.03-0.1-0.02-0.1-0.16 0-0.18 0.52-0.1 0.93-0.51 1.03-1.03z" fill="#f59e0b" stroke="#f59e0b" stroke-width="0.2"/></svg>`,
         isActive: chain => {
             // 检查选中文本是否已有批注
             const [result] = chain.isTextStyleActive({ key: 'comment' }).run();
@@ -211,8 +211,8 @@ export function toolbarDefaultConfig(toolbar) {
         // ---------------------------------------------------------
         .addInlineAction({
         id: 'add-to-chat',
-        name: '引用',
-        icon: html `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><path d="M8 10h.01"></path><path d="M12 10h.01"></path><path d="M16 10h.01"></path></svg>`,
+        name: '发给小北',
+        icon: html `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M9.69 1.29c.43 0 .86.03 1.27.09.49.07.83.52.76 1.02-.07.49-.52.83-1.02.76-.33-.05-.67-.07-1.01-.07-3.99 0-7.23 3.23-7.23 7.23 0 1.89.47 3.27 1.58 4.52.27.3.3.74.09 1.08l-.94 1.47c-.03.05-.08.1-.12.15l.01.01h6.62c3.99 0 7.23-3.23 7.23-7.23 0-.24-.01-.49-.04-.73-.05-.49.31-.93.81-.98.49-.05.93.31.98.81.03.3.04.6.04.9 0 4.98-4.04 9.03-9.03 9.03H3.07c-.73 0-1.39-.44-1.67-1.11-.26-.64-.14-1.37.31-1.88l.55-.85C1.13 14 .66 12.32.66 10.31.66 5.33 4.7 1.29 9.69 1.29z" fill="#004dbe"/><path d="M15.6 1.27c.01-.03.05-.03.05 0 .32 1.55 1.53 2.76 3.08 3.08.03.01.03.05 0 .05-1.55.32-2.76 1.53-3.08 3.08-.01.03-.05.03-.05 0-.32-1.55-1.53-2.76-3.08-3.08-.03-.01-.03-.05 0-.05 1.55-.32 2.76-1.53 3.08-3.08z" fill="#004dbe" stroke="#004dbe" stroke-width="0.625"/></svg>`,
         isActive: () => false,
         action: () => {
             // 获取选中文本

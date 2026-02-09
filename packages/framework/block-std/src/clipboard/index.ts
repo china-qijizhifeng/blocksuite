@@ -221,30 +221,7 @@ export class Clipboard {
       });
       clipboardItems['image/png'] = pngBlob;
     }
-    try {
-      await navigator.clipboard.write([new ClipboardItem(clipboardItems)]);
-    } catch {
-      // Fallback for iframe or permission denied scenarios
-      // Use a temporary textarea + execCommand('copy') for plain text
-      const textContent = clipboardItems['text/plain']
-        ? await clipboardItems['text/plain'].text()
-        : '';
-      if (textContent) {
-        const textarea = document.createElement('textarea');
-        textarea.value = textContent;
-        textarea.style.position = 'fixed';
-        textarea.style.left = '-9999px';
-        textarea.style.top = '-9999px';
-        document.body.append(textarea);
-        textarea.select();
-        try {
-          document.execCommand('copy');
-        } catch {
-          // ignore
-        }
-        textarea.remove();
-      }
-    }
+    await navigator.clipboard.write([new ClipboardItem(clipboardItems)]);
   }
 
   readFromClipboard(clipboardData: DataTransfer) {

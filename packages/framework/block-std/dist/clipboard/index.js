@@ -169,28 +169,7 @@ export class Clipboard {
             });
             clipboardItems['image/png'] = pngBlob;
         }
-        try {
-            await navigator.clipboard.write([new ClipboardItem(clipboardItems)]);
-        }
-        catch {
-            const textContent = clipboardItems['text/plain']
-                ? await clipboardItems['text/plain'].text()
-                : '';
-            if (textContent) {
-                const textarea = document.createElement('textarea');
-                textarea.value = textContent;
-                textarea.style.position = 'fixed';
-                textarea.style.left = '-9999px';
-                textarea.style.top = '-9999px';
-                document.body.appendChild(textarea);
-                textarea.select();
-                try {
-                    document.execCommand('copy');
-                }
-                catch { }
-                document.body.removeChild(textarea);
-            }
-        }
+        await navigator.clipboard.write([new ClipboardItem(clipboardItems)]);
     }
     readFromClipboard(clipboardData) {
         const items = clipboardData.getData('text/html');
